@@ -1,0 +1,71 @@
+{
+  "layer": "right",
+  "modules-left": [
+    "custom/launcher",
+    "cpu"
+  ],
+  "modules-center": [
+    "custom/workspace-number",
+    "hyprland/workspaces"
+  ],
+  "modules-right": [
+    "pulseaudio",
+    "clock",
+    "cava"
+  ],
+  "pulseaudio": {
+    "tooltip": false,
+    "scroll-step": 5,
+    "format": "{icon} {volume}%",
+    "format-muted": " {volume}%",
+    "on-click": "pactl set-sink-hmute @DEFAULT_SINK@ toggle",
+    "format-icons": {
+      "default": [
+        "",
+        "",
+        ""
+      ]
+    }
+  },
+  "clock": {
+    "format": "{:%H:%M}",
+    "timezone": "America/Argentina/La_Rioja"
+  },
+  "cpu": {
+    "interval": 15,
+    "format": " {usage}%"
+  },
+  "memory": {
+    "interval": 30,
+    "format": " {}%",
+    "max-length": 10
+  },    
+  "custom/launcher": {
+    "format": " ",
+    "on-click": "wofi --show drun",
+    "on-click-right": "killall wofi",
+    "tooltip": "false"
+  },
+  "custom/power": {
+    "format": " ",
+    "on-click": "killall waybar"
+  },
+  "custom/workspace-number": {
+    "exec": "~/.config/waybar/scripts/current-workspace.sh",
+    "format": "{}",
+    "tooltip": false,
+    "restart-interval": 5
+  },
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "format-active":"{icon}»{name}" ,
+    "format-icons": {
+      "active": "󰮯",
+      "default": "󰊠",
+      "empty": "󱙝"
+    },
+    "persistent-workspaces": {
+      "*": 3    
+    }
+  }
+}
